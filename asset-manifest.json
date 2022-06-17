@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bartendersfriend/static/css/main.073c9b0a.css",
+    "main.js": "/bartendersfriend/static/js/main.a9967491.js",
+    "static/js/787.30d88ba3.chunk.js": "/bartendersfriend/static/js/787.30d88ba3.chunk.js",
+    "index.html": "/bartendersfriend/index.html",
+    "main.073c9b0a.css.map": "/bartendersfriend/static/css/main.073c9b0a.css.map",
+    "main.a9967491.js.map": "/bartendersfriend/static/js/main.a9967491.js.map",
+    "787.30d88ba3.chunk.js.map": "/bartendersfriend/static/js/787.30d88ba3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.a9967491.js"
+  ]
+}
