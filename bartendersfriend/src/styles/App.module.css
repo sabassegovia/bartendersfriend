@@ -27,3 +27,18 @@
 .headerStyle {
   background-color: lightseagreen;
 }
+
+.headerStyle:hover {
+  cursor: pointer;
+}
+
+.homeBtn {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-width: 3px;
+}
+.homeBtn:hover {
+  cursor:pointer;
+  background-color: red;
+  box-shadow:2px 3px darkred;
+}
