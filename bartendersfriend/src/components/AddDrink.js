@@ -7,7 +7,7 @@ class AddDrink extends Component {
   }
   render() {
     return (
-      <>in AddDrink</>
+      <>In add drink component</>
     )
   }
 }

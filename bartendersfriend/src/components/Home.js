@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 import HomeCSS from '../styles/Home.module.css';
+import AddDrink from './AddDrink.js';
+import Batching from './Batching.js';
+import Confirmation from './Confirmation.js';
+import DisplayDrink from './DisplayDrink.js';
 import AdddrinkCSS from '../styles/AddDrink.module.css';
 import BatchingCSS from '../styles/Batching.module.css';
 import ConfirmationCSS from '../styles/Confirmation.module.css';
@@ -40,9 +44,12 @@ class Home extends Component {
             className={AdddrinkCSS.adddrinkpic}
             src={adddrinkpic}
             alt="alexs motto" />
+          <br></br>
           <p>
-            Let's make a drink!
+            <h2>In add drink</h2>
           </p>
+          <AddDrink />
+          <br></br><br></br>
           <button
             className={AdddrinkCSS.continueBtn}
             onClick={() => this.setState({ currentPage: 'home' })}>
@@ -61,9 +68,12 @@ class Home extends Component {
           className={BatchingCSS.batchingpic}
           src={adddrinkpic}
           alt="alexs motto" />
-        <p>
-          How much are we batching up today?
-        </p>
+          <br></br>
+          <p>
+            <h2>In batching</h2>
+          </p>
+          <Batching />
+          <br></br><br></br>
         <button
           className={HomeCSS.continueBtn}
           onClick={() => this.setState({ currentPage: 'adddrink' })}>
@@ -82,9 +92,12 @@ class Home extends Component {
           className={ConfirmationCSS.confirmationpic}
           src={adddrinkpic}
           alt="alexs motto" />
-        <p>
-         Here's the ingredients list:
-        </p>
+       <br></br>
+          <p>
+            <h2>In Confirmation</h2>
+          </p>
+          <Confirmation />
+          <br></br><br></br>
         <button
           className={HomeCSS.continueBtn}
           onClick={() => this.setState({ currentPage: 'batching' })}>
@@ -103,9 +116,12 @@ class Home extends Component {
           className={DisplayDrinkCSS.displaydrinkpic}
           src={adddrinkpic}
           alt="alexs motto" />
-        <p>
-          Voila, here's what you'll need:
-        </p>
+          <br></br>
+          <p>
+            <h2> Voila, here's what you'll need:</h2>
+          </p>
+          <DisplayDrink />
+          <br></br><br></br>
         <button
           className={HomeCSS.continueBtn}
           onClick={() => this.setState({ currentPage: 'home' })}>
