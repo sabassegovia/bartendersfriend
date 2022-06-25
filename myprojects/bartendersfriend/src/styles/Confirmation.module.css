@@ -1,0 +1,19 @@
+.confirmation {
+  background-color: lightgray;
+}
+
+.confirmationpic {
+  margin-bottom:-20px;
+  width: 40%;
+}
+
+.continueBtn {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-width: 3px;
+}
+.continueBtn:hover {
+  cursor:pointer;
+  background-color: red;
+  box-shadow:2px 3px darkred;
+}
