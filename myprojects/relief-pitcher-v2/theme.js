@@ -21,5 +21,4 @@ const theme = {
     ...funk.styles
   }
 }
-console.log(theme);
 export default theme
