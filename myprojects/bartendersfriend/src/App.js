@@ -60,7 +60,7 @@ class App extends Component {
             onClick={() => this.setState({currentPage: 'contact'})}>Contact</a></nav>
         {loadThisPage}
         <footer className={AppCSS.footerStyle}>
-          <span><a href="#">&#64;Lovenbooze</a></span>
+          <span><a href="https://www.instagram.com/lovenbooze_/" target="_blank" rel="noreferrer">&#64;Lovenbooze</a></span>
           <span>
             <a
               href="#"
