@@ -1,14 +1,29 @@
-import React, {Component} from 'react';
 
-class DisplayDrink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+const DisplayDrink = () => {
+  const drinkName = JSON.parse(localStorage.getItem("drinkName"));
+  const drinkVolume = JSON.parse(localStorage.getItem("drinkVolume"));
+  const batchType = JSON.parse(localStorage.getItem("batchType"));
+  const dataArray = JSON.parse(localStorage.getItem("dataArray"));
+  let singleDrinkOz = 0;
+  dataArray.forEach(ingredient => {
+    singleDrinkOz += Number(ingredient.ounces);
+  })
+  let batchOzCtr = 0;
+  if (batchType === 'drinks') {
+    batchOzCtr = Number(singleDrinkOz) * Number(drinkVolume);
   }
-  render() {
+
+
     return (
-      <>in DisplayDrink</>
+      <>
+      {singleDrinkOz}<br></br>{batchOzCtr}
+      </>
     )
-  }
+
 }
 export default DisplayDrink;
+
+
+
+
+//calculations

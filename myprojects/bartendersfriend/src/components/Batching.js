@@ -19,7 +19,6 @@ const Batching = () => {
             id="cars"
             onChange={(e) => localStorage.setItem('batchType', JSON.stringify(e.target.value))}>
             <option value="">batch...</option>
-            <option value="people">People</option>
             <option value="drinks">Drinks</option>
             <option value="gallons">Gallons</option>
             <option value="liters">Liters</option>

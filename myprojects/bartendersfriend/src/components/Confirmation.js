@@ -14,7 +14,7 @@ const Confirmation = () => {
   }
   return (
     <>
-      {conditionalBatchConfirmation};
+      {conditionalBatchConfirmation}
       <p>&#49; cocktail contains:</p>
       <ol>
         {dataArray.map((ingredient, i) => (
