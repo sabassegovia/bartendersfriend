@@ -46,7 +46,7 @@ class App extends Component {
         <header
           className={AppCSS.headerStyle}
           onClick={() => this.setState({ currentPage: 'home' })}>
-          <h1>Bartender&apos;s Friend</h1>
+          <h1>Bartender&apos;s Friend Yee</h1>
         </header>
 
         <nav className={AppCSS.navStyle}>
