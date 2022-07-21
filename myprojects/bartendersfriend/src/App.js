@@ -9,6 +9,11 @@ class App extends Component {
     this.state = {
       currentPage: 'home'
     }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    console.log('clicked');
   }
 
   render() {

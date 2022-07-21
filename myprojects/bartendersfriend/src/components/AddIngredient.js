@@ -1,5 +1,4 @@
 import React from "react";
-import AddIngredientCSS from "../styles/AddIngredient.module.css";
 
 const AddIngredient = (props) => {
   const updateIngredient = (e) => {
@@ -30,7 +29,7 @@ const AddIngredient = (props) => {
   const updateBottleType = (e) => {
     e.preventDefault();
     let newArr = [...props.ingredient];
-    newArr[props.index].bottleType = e.target.id;
+    newArr[props.index].bottleType = e.target.value;
     props.setDrinkInfo(newArr);
   };
 
@@ -67,20 +66,11 @@ const AddIngredient = (props) => {
           onChange={updateBottleVolume}
           id="bottleSize"
         />
-        <div className={AddIngredientCSS.dropdown}>
-          <button className={AddIngredientCSS.dropbtn}>Size</button>
-          <div className={AddIngredientCSS.dropdownContent}>
-            <a href="#" id="mL" onClick={updateBottleType}>
-              mL
-            </a>
-            <a href="#" id="L" onClick={updateBottleType}>
-              L
-            </a>
-            <a href="#" id="Gal" onClick={updateBottleType}>
-              Gal
-            </a>
-          </div>
-        </div>
+                  <select name="cars" id="cars" onChange={updateBottleType}>
+            <option value="mL">mL</option>
+            <option value="L">L</option>
+            <option value="Gallons">Gallons</option>
+          </select>
       </label>
     </li>
   );

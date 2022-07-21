@@ -19,12 +19,6 @@ class Home extends Component {
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    let {currentPage} = this.state.currentPage
-    if (currentPage === 'home' || currentPage === 'adddrink') {
-      console.log(`we would be resetting out session storage here`);
-    }
-  }
   render() {
 
     switch (this.state.currentPage) {
@@ -34,9 +28,7 @@ class Home extends Component {
             className={HomeCSS.profilepic}
             src={homepic}
             alt="alexs motto" />
-          <p>
-            Let's make a drink
-          </p>
+          <p></p>
           <button
             className={HomeCSS.continueBtn}
             onClick={() => this.setState({ currentPage: 'adddrink' })}>
@@ -50,8 +42,7 @@ class Home extends Component {
             className={AdddrinkCSS.adddrinkpic}
             src={adddrinkpic}
             alt="alexs motto" />
-          <br></br>
-            <h2>In add drink</h2>
+          <p></p>
           <AddDrink />
           <br></br><br></br>
           <button
@@ -72,8 +63,7 @@ class Home extends Component {
           className={BatchingCSS.batchingpic}
           src={adddrinkpic}
           alt="alexs motto" />
-          <br></br>
-          <h2>In batching</h2>
+          <p></p>
           <Batching />
           <br></br><br></br>
         <button
@@ -94,8 +84,7 @@ class Home extends Component {
           className={ConfirmationCSS.confirmationpic}
           src={adddrinkpic}
           alt="alexs motto" />
-        <br></br>
-        <h2>In Confirmation</h2>
+        <p></p>
         <Confirmation />
         <br></br><br></br>
         <button
@@ -117,9 +106,7 @@ class Home extends Component {
           src={adddrinkpic}
           alt="alexs motto" />
           <br></br>
-          <p>
-            <h2> Voila, here's what you'll need:</h2>
-          </p>
+          <p></p>
           <DisplayDrink />
           <br></br><br></br>
         <button

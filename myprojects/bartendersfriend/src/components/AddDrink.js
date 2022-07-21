@@ -84,7 +84,6 @@ const AddDrink = (props) => {
   };
 
   const validateAndPostData = () => {
-    let atleast1RowIsComplete = false;
     let localStorageArrayForIngredients = [];
 
     for (let i = 0; i < MAX_INGREDIENTS; i++) {
@@ -98,9 +97,6 @@ const AddDrink = (props) => {
         drinkInfo[i].bottleType !== "" &&
         drinkInfo[i].bottleSize !== ""
       ) {
-        // console.log(drinkInfo[i].ingredient);
-        // console.log(drinkInfo[i].ounces);
-        // console.log(drinkInfo[i].bottleSize, drinkInfo[i].bottleType);
         let tempObj = {
           ingredient: drinkInfo[i].ingredient,
           ounces: drinkInfo[i].ounces,
@@ -112,6 +108,7 @@ const AddDrink = (props) => {
         console.log(i);
         break;
       }
+
     }
 
     let stringifiedData = JSON.stringify(localStorageArrayForIngredients);
@@ -131,35 +128,8 @@ const AddDrink = (props) => {
         />
       </label>
       <ol>{rowsToDisplay()}</ol>
-      {/* <p>&#43;&nbsp;Add another&nbsp;&#43;</p> */}
       <button onClick={validateAndPostData}>submit data</button>
     </>
   );
-  // render() {
-  //   return (
-  //   //   <div className="addDrinkInput">
-  //   //     <form>
-  //   //       <label>
-  //   //         Ingredient&#58;&nbsp;
-  //   //       </label>
-  //   //       <input
-  //   //         type="text"
-  //   //         value={this.state.ingredient}
-  //   //         onChange={this.handleChange}
-  //   //       />&nbsp;&nbsp;
-  //   //       <label>
-  //   //         Amount&#40;oz&#41;&#58;&nbsp;
-  //   //       </label>
-  //   //       <input
-  //   //         type="number"
-  //   //         min="0"
-  //   //         step=".25"
-  //   //         value={this.state.amount}
-  //   //         onChange={this.handleChange}
-  //   //       />
-  //   //     </form>
-  //   //  </div>
-  //   )
-  // }
 }
 export default AddDrink;
