@@ -1,3 +1,5 @@
+import IngredientDisplay from './IngredientDisplay.js'
+
 const Confirmation = () => {
   const drinkName = JSON.parse(localStorage.getItem("drinkName")) || "";
   const drinkVolume = JSON.parse(localStorage.getItem("drinkVolume")) || "";
@@ -16,7 +18,7 @@ const Confirmation = () => {
       <p>&#49; cocktail contains:</p>
       <ol>
         {dataArray.map((ingredient, i) => (
-          <IngredientsDisplay
+          <IngredientDisplay
             ingredient={ingredient}
             key={ingredient.ounces + i}
           />
