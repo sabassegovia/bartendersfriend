@@ -1,14 +1,28 @@
-import React, {Component} from 'react';
+const Confirmation = () => {
+  const drinkName = JSON.parse(localStorage.getItem("drinkName")) || "";
+  const drinkVolume = JSON.parse(localStorage.getItem("drinkVolume")) || "";
+  const batchType = JSON.parse(localStorage.getItem("batchType")) || "";
+  const dataArray = JSON.parse(localStorage.getItem("dataArray")) || "";
 
-class Confirmation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  let conditionalBatchConfirmation = ""
+  if (batchType === 'people') {
+    conditionalBatchConfirmation = <>We want to make {drinkName} for {drinkVolume} {batchType}</>
+  } else {
+    conditionalBatchConfirmation = <>We want to make { drinkVolume } { batchType } of { drinkName }</>
   }
-  render() {
-    return (
-      <>in Confirmation</>
-    )
-  }
-}
+  return (
+    <>
+      {conditionalBatchConfirmation};
+      <p>&#49; cocktail contains:</p>
+      <ol>
+        {dataArray.map((ingredient, i) => (
+          <IngredientsDisplay
+            ingredient={ingredient}
+            key={ingredient.ounces + i}
+          />
+        ))}
+      </ol>
+    </>
+  );
+};
 export default Confirmation;
