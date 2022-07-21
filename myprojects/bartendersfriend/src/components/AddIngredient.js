@@ -66,7 +66,9 @@ const AddIngredient = (props) => {
           onChange={updateBottleVolume}
           id="bottleSize"
         />
-                  <select name="cars" id="cars" onChange={updateBottleType}>
+        <select name="cars" id="cars" onChange={updateBottleType}>
+
+            <option value="">Pick a size...</option>
             <option value="mL">mL</option>
             <option value="L">L</option>
             <option value="Gallons">Gallons</option>
