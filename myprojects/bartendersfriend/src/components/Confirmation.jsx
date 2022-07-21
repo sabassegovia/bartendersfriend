@@ -34,7 +34,7 @@ function Confirmation() {
       {conditionalBatchConfirmation}
       <p>&#49; cocktail contains:</p>
       <ol>
-        {dataArray.map((ingredient, i) => (
+        {dataArray.map((ingredient) => (
           <IngredientDisplay
             ingredient={ingredient}
             key={ingredient.ounces + Date.now()}

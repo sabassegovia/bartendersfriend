@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DisplayDrink() {
-  const drinkName = JSON.parse(localStorage.getItem('drinkName'));
+  // const drinkName = JSON.parse(localStorage.getItem('drinkName'));
   const drinkVolume = JSON.parse(localStorage.getItem('drinkVolume'));
   const batchType = JSON.parse(localStorage.getItem('batchType'));
   const dataArray = JSON.parse(localStorage.getItem('dataArray'));

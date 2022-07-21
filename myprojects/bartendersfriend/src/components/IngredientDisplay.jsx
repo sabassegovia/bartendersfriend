@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function IngredientDisplay({ ingredient }) {
   return (
@@ -17,6 +18,7 @@ function IngredientDisplay({ ingredient }) {
   );
 }
 IngredientDisplay.propTypes = {
+  ingredient: PropTypes.object
 };
 
 export default IngredientDisplay;

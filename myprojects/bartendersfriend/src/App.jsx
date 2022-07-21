@@ -8,29 +8,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 'home'
-    }
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    console.log('clicked');
+      currentPage: 'home',
+    };
   }
 
   render() {
-    var loadThisPage;
-    switch (this.state.currentPage) {
-      case "home": loadThisPage = <Home returnHome={this.returnHome}/>;
+    let loadThisPage;
+    const { currentPage } = this.state;
+    switch (currentPage) {
+      case 'home': loadThisPage = <Home returnHome={this.returnHome} />;
         break;
-      case "about": loadThisPage = (<>
-        <About />
-        <button
-          className={AppCSS.homeBtn}
-          onClick={() => this.setState({ currentPage: 'home' })}>
-          home
-        </button></>);
+      case 'about': loadThisPage = (
+        <>
+          <About />
+          <button
+            className={AppCSS.homeBtn}
+            onClick={() => this.setState({ currentPage: 'home' })}>
+            home
+          </button>
+        </>
+      );
         break;
-      case "contact": loadThisPage = (<>
+      case 'contact': loadThisPage = (<>
         <Contact />
         <button
           className={AppCSS.homeBtn}
@@ -47,12 +46,12 @@ class App extends Component {
         <header
           className={AppCSS.headerStyle}
           onClick={() => this.setState({ currentPage: 'home' })}>
-          <h1>Bartender's Friend</h1>
+          <h1>Bartender&apos;s Friend</h1>
         </header>
 
         <nav className={AppCSS.navStyle}>
           <a
-            id='home'
+            id="home"
             href="#"
             onClick={() => this.setState({ currentPage: 'home' })}>Home</a>&#32;
 
@@ -69,7 +68,7 @@ class App extends Component {
         </footer>
     </div>
     );
-  };
-};
+  }
+}
 
 export default App;
