@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AboutCSS from '../styles/About.module.css';
-import aboutpic from "../img/adddrink-photo.png"
+import aboutpic from '../img/adddrink-photo.png';
 
-class About extends Component {
-  render() {
-    return (
-      <section className={AboutCSS.about}>
+function About() {
+  return (
+    <section className={AboutCSS.about}>
       <img
         className={AboutCSS.aboutpic}
         src={aboutpic}
-        alt="alexs motto" />
+        alt="alexs motto"
+      />
       <p>
         [dfgjdgjdkljgdk gjd lkg  jj sfjfksjf sdkfjsd fs jklgjklj dfkj df]
       </p>
@@ -21,8 +21,6 @@ class About extends Component {
       </p>
 
     </section>
-    )
-  }
+  );
 }
-
 export default About;

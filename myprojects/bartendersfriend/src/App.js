@@ -1,8 +1,9 @@
+import React, { Component } from 'react';
 import AppCSS from './styles/App.module.css';
-import React, { Component} from 'react';
-import Home from './components/Home.js';
-import About from './components/About.js';
-import Contact from './components/Contact.js';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+
 class App extends Component {
   constructor(props) {
     super(props);

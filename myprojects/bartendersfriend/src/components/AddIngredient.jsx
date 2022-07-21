@@ -1,36 +1,37 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const AddIngredient = (props) => {
+function AddIngredient({ index, ingredient, setDrinkInfo }) {
   const updateIngredient = (e) => {
     // e.preventDefault();
-    console.log("index:", props.index);
-    console.log("value:", e.target.value);
-    let newArr = [...props.ingredient];
-    newArr[props.index][e.target.id] = e.target.value;
-    props.setDrinkInfo(newArr);
+    // console.log('index:', index);
+    // console.log('value:', e.target.value);
+    const newArr = [...ingredient];
+    newArr[index][e.target.id] = e.target.value;
+    setDrinkInfo(newArr);
   };
 
   const updateOunces = (e) => {
     e.preventDefault();
     // console.log(e.target.value);
-    let newArr = [...props.ingredient];
-    newArr[props.index].ounces = e.target.value;
-    props.setDrinkInfo(newArr);
+    const newArr = [...ingredient];
+    newArr[index].ounces = e.target.value;
+    setDrinkInfo(newArr);
   };
 
   const updateBottleVolume = (e) => {
     e.preventDefault();
     // console.log(e.target.value);
-    let newArr = [...props.ingredient];
-    newArr[props.index].bottleSize = e.target.value;
-    props.setDrinkInfo(newArr);
+    const newArr = [...ingredient];
+    newArr[index].bottleSize = e.target.value;
+    setDrinkInfo(newArr);
   };
 
   const updateBottleType = (e) => {
     e.preventDefault();
-    let newArr = [...props.ingredient];
-    newArr[props.index].bottleType = e.target.value;
-    props.setDrinkInfo(newArr);
+    const newArr = [...ingredient];
+    newArr[index].bottleType = e.target.value;
+    setDrinkInfo(newArr);
   };
 
   return (
@@ -54,7 +55,7 @@ const AddIngredient = (props) => {
           id="ounces"
           step=".25"
           onChange={updateOunces}
-          value={props.ingredient[props.index].ounces}
+          value={ingredient[index].ounces}
         />
       </label>
 
@@ -68,14 +69,18 @@ const AddIngredient = (props) => {
         />
         <select name="cars" id="cars" onChange={updateBottleType}>
 
-            <option value="">Pick a size...</option>
-            <option value="mL">mL</option>
-            <option value="L">L</option>
-            <option value="Gallons">Gallons</option>
-          </select>
+          <option value="">Pick a size...</option>
+          <option value="mL">mL</option>
+          <option value="L">L</option>
+          <option value="Gallons">Gallons</option>
+        </select>
       </label>
     </li>
   );
+}
+AddIngredient.propTypes = {
+  index: PropTypes.number,
+  ingredient: PropTypes.string,
+  setDrinkInfo: PropTypes.func
 };
-
 export default AddIngredient;
