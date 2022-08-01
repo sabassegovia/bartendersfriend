@@ -52,11 +52,11 @@ class App extends Component {
         </header>
 
         <nav className={AppCSS.navStyle}>
-          <span><a
+          <a
             className={AppCSS.linkCSS}
             id="home"
             href="#"
-            onClick={() => this.setState({ currentPage: 'home' })}>Home</a><p></p></span>
+            onClick={() => this.setState({ currentPage: 'home' })}>Home</a><p></p>
 
           <span><a
             className={AppCSS.linkCSS}

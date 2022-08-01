@@ -10,6 +10,7 @@ function About() {
         src={aboutpic}
         alt="alexs motto"
       />
+      <p>&nbsp;</p>
       <p>
         [dfgjdgjdkljgdk gjd lkg  jj sfjfksjf sdkfjsd fs jklgjklj dfkj df]
       </p>
@@ -19,7 +20,6 @@ function About() {
       <p>
         [kdfjg kdfgjgd fgjdklfg jdfkl gj]
       </p>
-
     </section>
   );
 }
