@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AddIngredient from './AddIngredient';
-
+import AddIngredientCSS from '../styles/AddIngredient.module.css'
 function AddDrink() {
   const [drinkName, setDrinkName] = useState('');
   const [drinkInfo, setDrinkInfo] = useState([
@@ -114,7 +114,7 @@ function AddDrink() {
     localStorage.setItem('drinkName', stringifiedName);
   };
   return (
-    <>
+    <div className={AddIngredientCSS.addIngredient}>
       <label>
         Name of drink&#58;&nbsp;
         <input
@@ -127,7 +127,7 @@ function AddDrink() {
       <ol>{rowsToDisplay()}</ol>
       <button onClick={validateAndPostData} type="submit">submit data</button>
       <p> </p>
-    </>
+    </div>
   );
 }
 export default AddDrink;

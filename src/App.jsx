@@ -12,16 +12,18 @@ class App extends Component {
     };
   }
 
+
   render() {
     let loadThisPage;
     const { currentPage } = this.state;
     switch (currentPage) {
-      case 'home': loadThisPage = <Home returnHome={this.returnHome} />;
+      case 'home': loadThisPage = <Home/>;
         break;
       case 'about': loadThisPage = (
         <>
           <About />
           <button
+            id="homeButton"
             className={AppCSS.homeBtn}
             onClick={() => this.setState({ currentPage: 'home' })}>
             home

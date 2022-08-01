@@ -1,7 +1,7 @@
-let bulkImages = [];
+const bulkImages = [];
 for (let i = 1; i <= 26; i++) {
-  let photo = `../img/${i}.png`
-  console.log(photo);
+  const photo = `../img/${i}.png`
   bulkImages.push(photo);
 }
+
 export default bulkImages;

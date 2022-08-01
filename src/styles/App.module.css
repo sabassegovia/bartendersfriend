@@ -1,6 +1,7 @@
 .app {
   text-align: center;
-  background-color: lightblue;
+  background-color: black;
+  color:white;
   font-size: larger;
   font-weight: bolder;
 }
@@ -21,11 +22,12 @@
   justify-content: space-around;
   position: relative;
   bottom: 0;
-  background-color: lightgoldenrodyellow;
+  background-color: black;
 }
 
 .headerStyle {
-  background-color: lightseagreen;
+  /* background-color: lightseagreen; */
+  color: rgb(103, 18, 18);
 }
 
 .headerStyle:hover {
