@@ -60,7 +60,7 @@ function AddIngredient({ index, ingredient, setDrinkInfo }) {
       </label>
 
       <label>
-        &nbsp;&nbsp;&nbsp;Bottle Size&#58;&nbsp;
+        &nbsp;&nbsp;&nbsp;Size&#58;&nbsp;
         <input
           type="number"
           placeholder="size of bottle..."

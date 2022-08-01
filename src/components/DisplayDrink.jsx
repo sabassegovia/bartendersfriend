@@ -7,22 +7,69 @@ function DisplayDrink() {
   const batchType = JSON.parse(localStorage.getItem('batchType')) || '';
   const dataArray = JSON.parse(localStorage.getItem('dataArray')) || '';
 
+  let totalOz = 0;
+  dataArray.forEach((ingredient) => {
+    totalOz += Number(ingredient.ounces);
+  })
   let finalData = [];
+  let ounces = 0, bottleConverted = 0;
   if (batchType === 'people') {
     dataArray.forEach((ingredient) => {
-      let ounces = Number(ingredient.ounces) * Number(drinkVolume);
-      let bottleConvertedToOunces = 0;
+      ounces = Number(ingredient.ounces) * Number(drinkVolume);
       //convert bottle into ounces
       if (ingredient.bottleType === 'L') {
-        bottleConvertedToOunces = Number(ingredient.bottleSize) * (33.814);
+        bottleConverted = Math.ceil(Number(ingredient.bottleSize) * (33.814));
       } else if (ingredient.bottleType === 'mL') {
-        bottleConvertedToOunces = Number(ingredient.bottleSize) * (.033814);
+        bottleConverted = Number(ingredient.bottleSize) * (.033814);
       } else if (ingredient.bottleType === 'Gallons') {
-        bottleConvertedToOunces = Number(ingredient.bottleSize) * (128);
+        bottleConverted = Number(ingredient.bottleSize) * (128);
       }
+      finalData.push({
+        'name': String((ingredient.ingredient)),
+        'ounces': ounces,
+        'bottlesNeeded': Math.ceil(Number(ounces) / bottleConverted)
+      });
+    });
+  }
 
-      finalData.push({ 'name': String((ingredient.ingredient)), 'ounces': ounces, 'bottlesNeeded': Math.ceil(Number(ounces) / bottleConvertedToOunces) });
-    })
+  if (batchType === 'liters') {
+    dataArray.forEach((ingredient) => {
+      let ratio = Number(ingredient.ounces) / Number(totalOz);
+      ounces = ratio * 33.814 * Number(drinkVolume);
+      console.log(ounces);
+      if (ingredient.bottleType === 'L') {
+        bottleConverted = Math.ceil(Number(ingredient.bottleSize) * (33.814));
+      } else if (ingredient.bottleType === 'mL') {
+        bottleConverted = Number(ingredient.bottleSize) * (.033814);
+      } else if (ingredient.bottleType === 'Gallons') {
+        bottleConverted = Number(ingredient.bottleSize) * (128);
+      }
+      finalData.push({
+        'name': String((ingredient.ingredient)),
+        'ounces': Math.round(ounces/.5) *.5,
+        'bottlesNeeded': Math.ceil(Number(ounces) / bottleConverted)
+      });
+    });
+  }
+
+  if (batchType === 'gallons') {
+    dataArray.forEach((ingredient) => {
+      let ratio = Number(ingredient.ounces) / Number(totalOz);
+      ounces = ratio * 128 * Number(drinkVolume);
+      console.log(ounces);
+      if (ingredient.bottleType === 'L') {
+        bottleConverted = Math.ceil(Number(ingredient.bottleSize) * (33.814));
+      } else if (ingredient.bottleType === 'mL') {
+        bottleConverted = Number(ingredient.bottleSize) * (.033814);
+      } else if (ingredient.bottleType === 'Gallons') {
+        bottleConverted = Number(ingredient.bottleSize) * (128);
+      }
+      finalData.push({
+        'name': String((ingredient.ingredient)),
+        'ounces': Math.round(ounces/.5) *.5,
+        'bottlesNeeded': Math.ceil(Number(ounces) / bottleConverted)
+      });
+    });
   }
 
 
@@ -42,8 +89,20 @@ function DisplayDrink() {
             />
           })}
           </> : ""}
-          {batchType === 'liters' ? <>n</> : ""}
-          {batchType === 'gallons' ? <>kj</> : ""}
+          {batchType === 'liters' ? <>{finalData.map((ingredient) => {
+            return <IngredientDisplayConfirmation
+              ingredient={ingredient}
+              key={ingredient.ounces + Date.now()}
+            />
+          })}
+          </> : ""}
+          {batchType === 'gallons' ? <>{finalData.map((ingredient) => {
+            return <IngredientDisplayConfirmation
+              ingredient={ingredient}
+              key={ingredient.ounces + Date.now()}
+            />
+          })}
+          </> : ""}
         </ol>
       </>
     );
