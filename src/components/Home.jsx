@@ -10,6 +10,7 @@ import ConfirmationCSS from '../styles/Confirmation.module.css';
 import DisplayDrinkCSS from '../styles/DisplayDrink.module.css';
 import homepic from '../img/home-photo.png';
 import adddrinkpic from '../img/adddrink-photo.png';
+import bulkImages from '../img/bulkImages.js'
 
 class Home extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class Home extends Component {
         <section className={AdddrinkCSS.adddrink}>
           <img
             className={AdddrinkCSS.adddrinkpic}
-            src={adddrinkpic}
+            src={`${bulkImages[0]}`}
             alt="alexs motto"
           />
           <p> </p>
