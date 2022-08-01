@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/bartendersfriend/static/css/main.b19a4876.css",
-    "main.js": "/bartendersfriend/static/js/main.e42b6483.js",
+    "main.css": "/bartendersfriend/static/css/main.82e1e19c.css",
+    "main.js": "/bartendersfriend/static/js/main.fe26bb79.js",
     "static/js/787.30d88ba3.chunk.js": "/bartendersfriend/static/js/787.30d88ba3.chunk.js",
+    "static/media/1.png": "/bartendersfriend/static/media/1.d2a9eb7cd71ede37ba6b.png",
     "static/media/home-photo.png": "/bartendersfriend/static/media/home-photo.7442dd6eb68b7a0a5bfb.png",
     "static/media/adddrink-photo.png": "/bartendersfriend/static/media/adddrink-photo.34b5b0cfcf65ec043cf3.png",
     "index.html": "/bartendersfriend/index.html",
-    "main.b19a4876.css.map": "/bartendersfriend/static/css/main.b19a4876.css.map",
-    "main.e42b6483.js.map": "/bartendersfriend/static/js/main.e42b6483.js.map",
+    "main.82e1e19c.css.map": "/bartendersfriend/static/css/main.82e1e19c.css.map",
+    "main.fe26bb79.js.map": "/bartendersfriend/static/js/main.fe26bb79.js.map",
     "787.30d88ba3.chunk.js.map": "/bartendersfriend/static/js/787.30d88ba3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b19a4876.css",
-    "static/js/main.e42b6483.js"
+    "static/css/main.82e1e19c.css",
+    "static/js/main.fe26bb79.js"
   ]
 }
