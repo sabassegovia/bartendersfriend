@@ -4,7 +4,6 @@ function Batching() {
   const drinkName = JSON.parse(localStorage.getItem('drinkName'));
   return (
     <div>
-
       <form>
         <label>
           {drinkName}&nbsp;
@@ -28,6 +27,7 @@ function Batching() {
           <option value="liters">Liters</option>
         </select>
       </form>
+      <p></p>
     </div>
 
   );

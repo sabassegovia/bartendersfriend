@@ -1,6 +1,6 @@
 import React from 'react';
 import ContactCSS from '../styles/Contact.module.css';
-import contactpic from '../img/adddrink-photo.png';
+import contactpic from '../img/22.png';
 
 function Contact() {
   return (
@@ -19,7 +19,7 @@ function Contact() {
       <p>
         [email]
       </p>
-
+      <p></p>
     </section>
   );
 }

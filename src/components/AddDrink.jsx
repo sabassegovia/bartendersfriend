@@ -124,9 +124,9 @@ function AddDrink() {
           value={drinkName}
         />
       </label>
-      <ol>{rowsToDisplay()}</ol>
-      <button onClick={validateAndPostData} type="submit">submit data</button>
-      <p> </p>
+      <ol className={AddIngredientCSS.wrapDiv}>{rowsToDisplay()}</ol>
+      <button className={AddIngredientCSS.submitBtn} onClick={validateAndPostData} type="submit">Submit Data</button>
+      <p>&nbsp;</p>
     </div>
   );
 }

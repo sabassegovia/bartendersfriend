@@ -35,12 +35,113 @@
 }
 
 .homeBtn {
-  margin-bottom: 10px;
-  border-radius: 8px;
-  border-width: 3px;
+  padding: .5em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
-.homeBtn:hover {
-  cursor:pointer;
-  background-color: red;
-  box-shadow:2px 3px darkred;
+
+.homeBtn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff6600,
+    #ff7300,
+    #c93305,
+    #d60a0a,
+    #ff0000,
+    #cd1a1a,
+    #b81212,
+    #7c1010,
+    #625e5e
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-homeBtn 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-homeBtn {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.homeBtn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.navStyle {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  bottom: 0;
+  background-color: black;
+}
+
+.linkCSS {
+  color: #54b3d6;
+  position: relative;
+  text-decoration: none;
+}
+
+.linkCSS:visited {
+  color: #54b3d6;
+}
+
+.linkCSS:link {
+  color: rgb(103, 18, 18);
+}
+
+.linkCSS:hover {
+  color: rgb(103, 18, 18);
+}
+
+.linkCSS::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #54b3d6;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.linkCSS:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
 }

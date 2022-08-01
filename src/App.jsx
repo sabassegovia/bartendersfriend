@@ -27,7 +27,7 @@ class App extends Component {
             className={AppCSS.homeBtn}
             onClick={() => this.setState({ currentPage: 'home' })}>
             home
-          </button>
+          </button><p>&nbsp;</p>
         </>
       );
         break;
@@ -37,7 +37,7 @@ class App extends Component {
           className={AppCSS.homeBtn}
           onClick={() => this.setState({ currentPage: 'home' })}>
           home
-        </button></>);
+        </button><p></p></>);
         break;
       default: <h1>There appears to be an error at the moment, refresh or try again later</h1>
     }
@@ -52,21 +52,25 @@ class App extends Component {
         </header>
 
         <nav className={AppCSS.navStyle}>
-          <a
+          <span><a
+            className={AppCSS.linkCSS}
             id="home"
             href="#"
-            onClick={() => this.setState({ currentPage: 'home' })}>Home</a>&#32;
+            onClick={() => this.setState({ currentPage: 'home' })}>Home</a><p></p></span>
 
-          <a
+          <span><a
+            className={AppCSS.linkCSS}
             href="#"
-            onClick={() => this.setState({currentPage: 'contact'})}>Contact</a></nav>
+            onClick={() => this.setState({currentPage: 'contact'})}>Contact</a><p></p></span></nav>
         {loadThisPage}
         <footer className={AppCSS.footerStyle}>
-          <span><a href="https://www.instagram.com/lovenbooze_/" target="_blank" rel="noreferrer">&#64;Lovenbooze</a></span>
-          <span>
-            <a
-              href="#"
-              onClick={() => this.setState({currentPage: 'about'})}>About me</a></span>
+          <span><a
+            className={AppCSS.linkCSS}
+            href="https://www.instagram.com/lovenbooze_/" target="_blank" rel="noreferrer">&#64;Lovenbooze</a></span>
+          <span><a
+            className={AppCSS.linkCSS}
+            href="#"
+            onClick={() => this.setState({currentPage: 'about'})}>About me</a></span>
         </footer>
     </div>
     );
