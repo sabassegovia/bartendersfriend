@@ -3,7 +3,7 @@ require('dotenv').config();
 const mongoose = require('mongoose'); // for database
 const morgan = require('morgan'); // morgan - logs request, helpful for debugging
 const cors = require('cors'); // cors - for communicatinf front-back end
-const PORT = process.env.PORT || 8080;
+const DB_PORT =  process.env.DB_PORT || 8080;
 
 // app
 const app = express();
@@ -25,9 +25,10 @@ app.use(morgan('dev'));
 app.use(cors({ origin: true, credentials: true }));
 
 // routes
-
+const testRoutes = require('./routes/test');
+app.use("/", testRoutes);
 
 // listener
-const server = app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`);
+const server = app.listen(DB_PORT, () => {
+  console.log(`server is running on DB_port ${DB_PORT}`);
 });
