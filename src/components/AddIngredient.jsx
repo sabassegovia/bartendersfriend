@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 
 function AddIngredient({ index, ingredient, setDrinkInfo }) {
   const updateIngredient = (e) => {
-    // e.preventDefault();
-    // console.log('index:', index);
-    // console.log('value:', e.target.value);
     const newArr = [...ingredient];
     newArr[index][e.target.id] = e.target.value;
     setDrinkInfo(newArr);
@@ -13,7 +10,6 @@ function AddIngredient({ index, ingredient, setDrinkInfo }) {
 
   const updateOunces = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     const newArr = [...ingredient];
     newArr[index].ounces = e.target.value;
     setDrinkInfo(newArr);
@@ -21,7 +17,6 @@ function AddIngredient({ index, ingredient, setDrinkInfo }) {
 
   const updateBottleVolume = (e) => {
     e.preventDefault();
-    // console.log(e.target.value);
     const newArr = [...ingredient];
     newArr[index].bottleSize = e.target.value;
     setDrinkInfo(newArr);
@@ -43,7 +38,6 @@ function AddIngredient({ index, ingredient, setDrinkInfo }) {
           placeholder="name of ingredient..."
           id="ingredient"
           onChange={updateIngredient}
-          // value={props.ingredient[props.index].ingredient || ""}
         />
       </label>
 
@@ -68,7 +62,6 @@ function AddIngredient({ index, ingredient, setDrinkInfo }) {
           id="bottleSize"
         />
         <select name="cars" id="cars" onChange={updateBottleType}>
-
           <option value="">Pick a size...</option>
           <option value="mL">mL</option>
           <option value="L">L</option>
