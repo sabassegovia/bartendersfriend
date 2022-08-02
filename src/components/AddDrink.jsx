@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 // import AddIngredient from './AddIngredient';
 import AddIngredientCSS from '../styles/AddIngredient.module.css'
+
 function AddDrink() {
   const [drinkName, setDrinkName] = useState('');
   const [drinkInfo, setDrinkInfo] = useState([{
       ingredient: '',
       ounces: 0,
       bottleSize: '',
-      bottleType: '',
+      bottleType: ''
   }]);
 
   const validateAndPostData = (event) => {
 
-    const localStorageArrayForIngredients = [];
     if (drinkName === '') {
       alert('Please enter a drink name');
       return;
     }
-    console.log('in validate and post data');
+
+    const localStorageArrayForIngredients = [];
     for (let i = 0; i < drinkInfo.length; i += 1) {
       if (
         drinkInfo[i].ingredient !== ''
@@ -47,6 +48,16 @@ function AddDrink() {
     data[index][event.target.name] = event.target.value;
     setDrinkInfo(data);
   }
+
+  const addFields = () => {
+    let newField = {ingredient: '', ounces: 0, bottleSize: '', bottleType: ''};
+    setDrinkInfo([...drinkInfo, newField]);
+  }
+  const removeFields = (index) => {
+    let data = [...drinkInfo];
+    data.splice(index, 1);
+    setDrinkInfo(data);
+  }
   return (
     <div className={AddIngredientCSS.addIngredient}>
       <label>
@@ -63,52 +74,74 @@ function AddDrink() {
         {drinkInfo.map((input, index) => {
           return (
             <li>
-              <label>
-                Ingredient&#58;&nbsp;
-                <input
-                  type="text"
-                  placeholder="name of ingredient..."
-                  name="ingredient"
-                  value={drinkInfo.ingredient}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-              </label>
+              <form onSubmit={validateAndPostData}>
+                <label>
+                  Ingredient&#58;&nbsp;
+                  <input
+                    type="text"
+                    placeholder="name of ingredient..."
+                    name="ingredient"
+                    value={drinkInfo.ingredient}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                </label>
 
-              <label>
-                &nbsp;&nbsp;&nbsp;Ounces&#58;&nbsp;
-                <input
-                  type="number"
-                  placeholder="enter a number"
-                  name="ounces"
-                  step=".25"
-                  value={drinkInfo.ounces}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-              </label>
+                <label>
+                  &nbsp;&nbsp;&nbsp;Ounces&#58;&nbsp;
+                  <input
+                    type="number"
+                    placeholder="enter a number"
+                    name="ounces"
+                    step=".25"
+                    value={drinkInfo.ounces}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                </label>
 
-              <label>
-                &nbsp;&nbsp;&nbsp;Size&#58;&nbsp;
-                <input
-                  type="number"
-                  placeholder="size of bottle..."
-                  name="bottleSize"
-                  value={drinkInfo.bottleSize}
-                  onChange={(event) => handleFormChange(index, event)}
-                />
-                <select
-                  name="bottleType"
-                  onChange={(event) => handleFormChange(index, event)}>
-                  <option value="">Pick a size...</option>
-                  <option value="mL">mL</option>
-                  <option value="L">L</option>
-                  <option value="Gallons">Gallons</option>
-                </select>
-              </label>
+                <label>
+                  &nbsp;&nbsp;&nbsp;Size&#58;&nbsp;
+                  <input
+                    type="number"
+                    placeholder="size of bottle..."
+                    name="bottleSize"
+                    value={drinkInfo.bottleSize}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                  <select
+                    name="bottleType"
+                    onChange={(event) => handleFormChange(index, event)}>
+                    <option value="">Pick a size...</option>
+                    <option value="mL">mL</option>
+                    <option value="L">L</option>
+                    <option value="Gallons">Gallons</option>
+                  </select>
+                </label>
+                <span>
+                  {index === drinkInfo.length - 1 ?
+                    <button
+                      onClick={addFields}
+                      className={AddIngredientCSS.submitBtn}
+                    >Add More..</button> :
+                    <></>}
+                  <button
+                    className={AddIngredientCSS.submitBtn}
+                    onClick={() => removeFields(index)}
+                  >Remove</button>
+                </span>
+              </form>
             </li>
           )
         })}
       </ol>
-      <button className={AddIngredientCSS.submitBtn} onClick={(event) => validateAndPostData(event)} type="submit">Submit Data</button>
+      <span>
+
+        <button
+          className={AddIngredientCSS.submitBtn}
+          onClick={(event) => validateAndPostData(event)}
+          type="submit"
+        >Submit Data
+        </button>
+      </span>
       <p>&nbsp;</p>
     </div>
   );

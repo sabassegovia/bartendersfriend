@@ -13,7 +13,7 @@ function Batching() {
           type="number"
           placeholder="enter a number"
           id="ounces"
-          step=".25"
+          step="1"
           onChange={(e) => localStorage.setItem('drinkVolume', JSON.stringify(e.target.value))}
         />
         <select
