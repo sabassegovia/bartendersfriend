@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/bartendersfriend/static/css/main.772abfdc.css",
-    "main.js": "/bartendersfriend/static/js/main.19f4079c.js",
+    "main.js": "/bartendersfriend/static/js/main.b74a1234.js",
     "static/js/787.30d88ba3.chunk.js": "/bartendersfriend/static/js/787.30d88ba3.chunk.js",
     "static/media/15.png": "/bartendersfriend/static/media/15.9128ec3bfb4961aeaf56.png",
     "static/media/22.png": "/bartendersfriend/static/media/22.d4bb971242ea62d8af0d.png",
@@ -12,11 +12,11 @@
     "static/media/adddrink-photo.png": "/bartendersfriend/static/media/adddrink-photo.34b5b0cfcf65ec043cf3.png",
     "index.html": "/bartendersfriend/index.html",
     "main.772abfdc.css.map": "/bartendersfriend/static/css/main.772abfdc.css.map",
-    "main.19f4079c.js.map": "/bartendersfriend/static/js/main.19f4079c.js.map",
+    "main.b74a1234.js.map": "/bartendersfriend/static/js/main.b74a1234.js.map",
     "787.30d88ba3.chunk.js.map": "/bartendersfriend/static/js/787.30d88ba3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.772abfdc.css",
-    "static/js/main.19f4079c.js"
+    "static/js/main.b74a1234.js"
   ]
 }
