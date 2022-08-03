@@ -9,6 +9,7 @@ function About() {
         className={AboutCSS.aboutpic}
         src={aboutpic}
         alt="alexs motto"
+
       />
       <p>&nbsp;</p>
       <p>

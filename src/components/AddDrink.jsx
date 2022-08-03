@@ -70,10 +70,10 @@ function AddDrink() {
         />
       </label>
 
-      <ol className={AddIngredientCSS.wrapDiv}>
+      <ol>
         {drinkInfo.map((input, index) => {
           return (
-            <li>
+            <li className={AddIngredientCSS.listItem}>
               <form onSubmit={validateAndPostData}>
                 <label>
                   Ingredient&#58;&nbsp;
@@ -116,17 +116,19 @@ function AddDrink() {
                     <option value="Gallons">Gallons</option>
                   </select>
                 </label>
-                <span>
+                <span className={AddIngredientCSS.centerBtns}n>
+                  {index > 0 ?
+                    <button
+                      onClick={removeFields}
+                      className={AddIngredientCSS.minusBtn}
+                    >-</button> :
+                    <></>}
                   {index === drinkInfo.length - 1 ?
                     <button
                       onClick={addFields}
-                      className={AddIngredientCSS.submitBtn}
-                    >Add More..</button> :
+                      className={AddIngredientCSS.plusBtn}
+                    >+</button> :
                     <></>}
-                  <button
-                    className={AddIngredientCSS.submitBtn}
-                    onClick={() => removeFields(index)}
-                  >Remove</button>
                 </span>
               </form>
             </li>
