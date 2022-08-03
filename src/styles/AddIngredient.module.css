@@ -6,6 +6,7 @@
 .wrapDiv {
   display:flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .dropbtn {
   background-color: black;
@@ -118,4 +119,36 @@
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+.minusBtn {
+  height:25px;
+  width:25px;
+  border:1px black solid;
+  border-radius:0;
+}
+
+.plusBtn {
+  height:25px;
+  width:25px;
+  border:1px black solid;
+  border-radius:0;
+}
+
+.minusBtn:hover{
+  background-color:#480606d4;
+  border:none;
+  color:white;
+  cursor: pointer;
+}
+
+.plusBtn:hover{
+  background-color:#54b3d6;
+  border:none;
+  color:white;
+  cursor: pointer
+}
+
+.listItem {
+  list-style: none;
 }

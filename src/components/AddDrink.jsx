@@ -1,96 +1,25 @@
 import React, { useState } from 'react';
-import AddIngredient from './AddIngredient';
+// import AddIngredient from './AddIngredient';
 import AddIngredientCSS from '../styles/AddIngredient.module.css'
+
 function AddDrink() {
   const [drinkName, setDrinkName] = useState('');
-  const [drinkInfo, setDrinkInfo] = useState([
-    {
+  const [drinkInfo, setDrinkInfo] = useState([{
       ingredient: '',
       ounces: 0,
       bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-    {
-      ingredient: '',
-      ounces: 0,
-      bottleSize: '',
-      bottleType: '',
-    },
-  ]);
-  const MAX_INGREDIENTS = 10;
-  const rowsToDisplay = () => {
-    const row = [];
-    for (let i = 0; i < MAX_INGREDIENTS; i += 1) {
-      row.push(
-        <AddIngredient
-          ingredient={drinkInfo}
-          index={i}
-          setDrinkInfo={setDrinkInfo}
-          key={i}
-        />,
-      );
+      bottleType: ''
+  }]);
+
+  const validateAndPostData = (event) => {
+
+    if (drinkName === '') {
+      alert('Please enter a drink name');
+      return;
     }
-    return row;
-  };
 
-  const validateAndPostData = () => {
     const localStorageArrayForIngredients = [];
-
-    for (let i = 0; i < MAX_INGREDIENTS; i += 1) {
-      if (drinkName === '') {
-        // alert('Please enter a drink name');
-        const alert = 'Please enter a drink name';
-        alert();
-        break;
-      }
+    for (let i = 0; i < drinkInfo.length; i += 1) {
       if (
         drinkInfo[i].ingredient !== ''
         && drinkInfo[i].bottleType !== ''
@@ -113,6 +42,22 @@ function AddDrink() {
     localStorage.setItem('dataArray', stringifiedData);
     localStorage.setItem('drinkName', stringifiedName);
   };
+
+  const handleFormChange = (index, event) => {
+    let data = [...drinkInfo];
+    data[index][event.target.name] = event.target.value;
+    setDrinkInfo(data);
+  }
+
+  const addFields = () => {
+    let newField = {ingredient: '', ounces: 0, bottleSize: '', bottleType: ''};
+    setDrinkInfo([...drinkInfo, newField]);
+  }
+  const removeFields = (index) => {
+    let data = [...drinkInfo];
+    data.splice(index, 1);
+    setDrinkInfo(data);
+  }
   return (
     <div className={AddIngredientCSS.addIngredient}>
       <label>
@@ -124,8 +69,81 @@ function AddDrink() {
           value={drinkName}
         />
       </label>
-      <ol className={AddIngredientCSS.wrapDiv}>{rowsToDisplay()}</ol>
-      <button className={AddIngredientCSS.submitBtn} onClick={validateAndPostData} type="submit">Submit Data</button>
+
+      <ol>
+        {drinkInfo.map((input, index) => {
+          return (
+            <li className={AddIngredientCSS.listItem}>
+              <form onSubmit={validateAndPostData}>
+                <label>
+                  Ingredient&#58;&nbsp;
+                  <input
+                    type="text"
+                    placeholder="name of ingredient..."
+                    name="ingredient"
+                    value={drinkInfo.ingredient}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                </label>
+
+                <label>
+                  &nbsp;&nbsp;&nbsp;Ounces&#58;&nbsp;
+                  <input
+                    type="number"
+                    placeholder="enter a number"
+                    name="ounces"
+                    step=".25"
+                    value={drinkInfo.ounces}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                </label>
+
+                <label>
+                  &nbsp;&nbsp;&nbsp;Size&#58;&nbsp;
+                  <input
+                    type="number"
+                    placeholder="size of bottle..."
+                    name="bottleSize"
+                    value={drinkInfo.bottleSize}
+                    onChange={(event) => handleFormChange(index, event)}
+                  />
+                  <select
+                    name="bottleType"
+                    onChange={(event) => handleFormChange(index, event)}>
+                    <option value="">Pick a size...</option>
+                    <option value="mL">mL</option>
+                    <option value="L">L</option>
+                    <option value="Gallons">Gallons</option>
+                  </select>
+                </label>
+                <span className={AddIngredientCSS.centerBtns}n>
+                  {index > 0 ?
+                    <button
+                      onClick={removeFields}
+                      className={AddIngredientCSS.minusBtn}
+                    >-</button> :
+                    <></>}
+                  {index === drinkInfo.length - 1 ?
+                    <button
+                      onClick={addFields}
+                      className={AddIngredientCSS.plusBtn}
+                    >+</button> :
+                    <></>}
+                </span>
+              </form>
+            </li>
+          )
+        })}
+      </ol>
+      <span>
+
+        <button
+          className={AddIngredientCSS.submitBtn}
+          onClick={(event) => validateAndPostData(event)}
+          type="submit"
+        >Submit Data
+        </button>
+      </span>
       <p>&nbsp;</p>
     </div>
   );
